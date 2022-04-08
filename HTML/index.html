@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose-hope</title>
+    <link rel="stylesheet" href="CSS/homepage.css">
+    <script src="JS/homepage.js"></script>
+    <script src="JS/animate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxTkcaljc1eGqBEeua_dTtCDLB9dhNI-4&libraries=places&callback"></script>
+    <script src="JS/multi-select.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <header>
+        <!-- add web logo -->
+        <a href="#" class="webLogo"></a>
+        <!-- add navigation bar -->
+        <div class="nav">
+            <a href="#" id="homeId">Home</a>
+            <div class="dropdown">
+                <a href="javascript:;" onclick="myFunction()" class="dropbtn">Services<i class="down"></i></a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="javascript:;"
+                        onclick="reconnectionServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Reconnect
+                        Program</a>
+                    <a href="javascript:;"
+                        onclick="housingServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Social
+                        Housing</a>
+                    <a href="javascript:;"
+                        onclick="healthServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Health
+                        Care</a>
+                    <a href="javascript:;"
+                        onclick="jobServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Job
+                        Opportunities</a>
+                    <a href="javascript:;"
+                        onclick="legalServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Legal
+                        Advice</a>
+                    <a href="javascript:;"
+                        onclick="laundryServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Laundry</a>
+                </div>
+            </div>
+            <a href="aboutUs.html" id="aboutId">About Us</a>
+        </div>
+    </header>
+    <div id="mobile"></div>
+    <div class="part1">
+        <!-- add arrow button -->
+        <a href="javascript:;" class="left"></a>
+        <a href="javascript:;" class="right"></a>
+        <ol class="circle">
+        </ol>
+        <ul>
+            <!-- first slide -->
+            <li>
+                <div class="slide1">
+                    <div class="big1">
+                        <h1>Choose-Hope For Youth</h1>
+                        <p>In Australia, one in four homeless people are aged between 12 – 24 years old, and there are
+                            more than 15,000 people under age 12, accounting for 14% of the total homeless population
+                            &nbsp<a
+                                href="https://rmitjournalism.shorthandstories.com/youth-homelessness--under-addressed-and-devastating/index.html"
+                                target="blank">(Raneri,
+                                2021)</a>.
+                        </p>
+                        <a href="#services" class="seeMore"></a>
+                    </div>
+                    <div class="big2"></div>
+                </div>
+            </li>
+            <!-- second slide -->
+            <li>
+                <div class="slide2">
+                    <div class="big1">
+                        <h1>Story Of Us</h1>
+                        <p class="p1">A progressive application that is aimed to deliver pioneering ideas that serves
+                            the
+                            community.
+                        </p>
+                        <p class="p2">- Watch our explainer video to understand more on the services offered.</p>
+                        <a href="aboutUs.html#webLogo" class="seeMore"></a>
+                    </div>
+                    <div class="big2"></div>
+                </div>
+            </li>
+            <!-- third slide -->
+            <li>
+                <div class="slide3">
+                    <div class="big1">
+                        <h1>Why Do People Experience Homelessness? </h1>
+                        <p class="p1">An interactive visualization that dispels myths and
+                            puts homelessness into context. <br> Explore and understand to know better! </p>
+                        <a href="#part5Id" class="seeMore"></a>
+                    </div>
+                    <div class="big2"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="part2">
+        <div class="servicesDesctiption"></div>
+    </div>
+    <!-- services -->
+    <div class="part4">
+        <h1 id="services">Seek Help</h1>
+        <h2>Access a wide range of services that are specifically designed for youth of Australia.</h2>
+        <div class="help">
+
+            <div id="light" class="white_content">
+                <h2>Find a service!</h2>
+                <h4>Location:</h4>
+                <a href="javascript:void(0)"
+                    onclick="enableScroll();document.body.style.overflow='auto';document.getElementById('emptyError').style.display='none';document.getElementById('numberError').style.display='none';document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><img
+                        src="image/close.png" alt="">
+                </a>
+                <div class="postcode">
+                    <select id="input_id" class="selectpicker" name="serviceLocation" data-actions-box="true"
+                        data-live-search="true" onkeydown="if (event.keyCode == 13)
+                    document.getElementById('Continue').click()">
+                    </select>
+                    <!-- <input type="text" id="input_id" value="" placeholder="Start typing a suburb or city" onkeydown="if (event.keyCode == 13)
+                            document.getElementById('Continue').click()" /> -->
+                </div>
+                <div>
+                    <input type="button" class="continue" id="Continue" value="Show Me" onclick="valueSender()" />
+                </div>
+                <div id="mapIcon">
+                    <p onclick="valueSender2()">Use My Current Location</p><img src="image/maplogo.png" alt="">
+                </div>
+                <p id="emptyError">Input can not be empty!</p>
+                <p id="numberError">Input must be a number!</p>
+            </div>
+
+            <div id="fade" class="black_overlay"></div>
+
+            <!-- reconnectionService -->
+            <div class="reconnectionService" value="reconnect program"
+                onclick="reconnectionServiceClick();serviceConfirm();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Reconnect Program</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+            <!-- housingService -->
+            <div class="housingService"
+                onclick="housingServiceClick();serviceConfirm();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Social Housing</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+            <!-- healthService -->
+            <div class="healthService"
+                onclick="healthServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Health Care</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+            <!-- jobService -->
+            <div class="jobService"
+                onclick="jobServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Job Opportunities</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+            <!-- legalService -->
+            <div class="legalService"
+                onclick="legalServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Legal Advice</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+            <!-- laundryService -->
+            <div class="laundryService"
+                onclick="laundryServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+                <h3>Laundry</h3>
+                <img id="findMore" src="image/gradient.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="part5">
+        <h1 id="part5Id">Explore, Understand Homelessness! </h1>
+        <h2>Interactive visualization, that enlightens the realities and puts homelessness into context. </h2>
+        <iframe src="https://93hpvl-peipei-wang.shinyapps.io/datavisualization/" width="1000px" height="820px"
+            style="border:none;"></iframe>
+    </div>
+
+    <div class="footer">
+        <p class="p1">Copyright</p>
+        <img src="image/copyright.png" alt="">
+        <p class="p2">2021 Project007. All Rights Reserved.</p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,716 @@
+/* Initialize the page */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+}
+/* delete the dots of li */
+li {
+    list-style: none;
+}
+#header {
+    width: 1200px;
+    height: 150px;
+    margin: 20px auto 0;
+    background-color: rgb(255, 255, 255);
+}
+#webLogo {
+    background-image: url(../image/webLogo.jpg);
+    background-size: 110%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 350px;
+    height: 80px;
+    margin-top: 30px;
+    background-position: 0 -40px;
+}
+#nav {
+    float: right;
+    width: 630px;
+    height: 150px;
+    display: inline-block;
+    line-height: 150px;
+    text-align: center;
+    margin-right: 0;
+}
+#homeId,
+#aboutId,
+.dropbtn {
+    height: 46px;
+    line-height: 46px;
+    display: inline-block;
+    font-size: 20px;
+    color: #4c4c4c;
+    font-weight: bold;
+    text-decoration-line: none;
+    padding: 0 60px;
+    border-bottom: 0px solid #000;
+}
+/* The container <div> - needed to position the dropdown content */
+#dropdown {
+    position: relative;
+    display: inline-block;
+    line-height: 46px;
+}
+.down {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 190px;
+    top: 46px;
+    z-index: 9999;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 2px 8px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    color: #FF8C00;
+    background-color: #ddd;
+    text-decoration: none;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/* Provide feedback for touching the navigation bar */
+#homeId:hover,
+#aboutId:hover {
+    background-color: #ddd;
+    color: #FF8C00;
+    text-decoration-line: none;
+}
+.dropbtn:hover {
+    background-color: #ddd;
+    color: #FF8C00;
+    text-decoration-line: none;
+}
+/* Shrouded layer */
+.black_overlay {
+    display: none;
+    position: fixed;
+    /* overflow: hidden; */
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=88);
+}
+.black_overlay::-webkit-scrollbar {
+    display:none; 
+}
+
+/* pop-up layer */
+.white_content {
+    display: none;
+    position: fixed;
+    /* overflow: hidden; */
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    margin-left: -300px;
+    margin-top: -200px;
+    background-color: white;
+    z-index: 1002;
+}
+.white_content h2 {
+    position:absolute;
+    top: 60px;
+    left: 60px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.white_content h4 {
+    position:absolute;
+    top: 160px;
+    left: 140px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.white_content img {
+    position: absolute;
+    top: 55px;
+    right: 60px;
+    height: 28px;
+}
+.white_content .close:hover,
+#mapIcon:hover {
+    opacity: 0.5;
+}
+.white_content .postcode {
+    position: absolute;
+    top: 190px;
+    left: 140px;
+    font-size: 14px;
+}
+.white_content .postcode input {
+    width: 300px;
+    height: 30px;
+}
+#mapIcon p {
+    position: absolute;
+    display: inline-block;
+    top: 162px;
+    font-size: 12px;
+    right: 29%;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#mapIcon img {
+    position: absolute;
+    top: 160px;
+    right: 26%;
+    height: 18px;
+}
+.white_content .continue {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    border-radius: 9px;
+    left: 42%;
+    bottom: 50px;
+    background:#FF8C00;
+    font-size:14px;
+    color:white;
+    border: 0;
+    cursor: pointer;
+}
+.white_content .continue:hover{
+    opacity: 0.5;
+}
+#emptyError,
+#numberError {
+    position: absolute;
+    left: 140px;
+    top: 230px;
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+.aboutUsPage {
+    width: 1400px;
+    height: 300px;
+    margin: 50px auto 0;
+}
+.aboutUsPage img {
+    width: 1400px;
+    height: 300px;
+}
+.video {
+    height: 650px;
+    width: 1400px;
+    margin: 100px auto 0;
+    text-align: center;
+}
+.video h1 {
+    padding-top: 50px;
+    color: #FF8C00;
+    font-size: 32px;
+    font-weight: 700;
+}
+.video .des {
+    width: 850px;
+    margin: 30px auto;
+    color: rgb(0, 0, 0);
+    font-size: 18.72px;
+    font-weight: 700;
+}
+.video video {
+    width: 850px;
+} 
+.animation {
+    width: 1400px;
+    margin: 100px auto;
+    text-align: center;
+}
+#animationH1 {
+    padding-top: 50px;
+    color: #FF8C00;
+    font-size: 32px;
+    font-weight: 700;
+}
+#mission,
+#vission,
+#services,
+#team {
+    width: 40px;
+    height: 40px;
+}
+.footer {
+    position: relative;
+    height: 150px;
+    width: 1400px;
+    margin: 0 auto;
+    background-color: rgb(17, 17, 17);
+    background-image: url(../image/teamLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.footer .p1 {
+    position: absolute;
+    color: white;
+    bottom: 6%;
+    right: 235px;
+    font-size: 10px;
+}
+.footer img {
+    position: absolute;
+    color: white;
+    bottom: 6%;
+    right: 215px;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+}
+.footer .p2 {
+    position: absolute;
+    color: white;
+    bottom: 6%;
+    right: 40px;
+    font-size: 10px;
+}
+
+@media only screen and (max-width : 768px) {
+    header {
+        width: 100%;
+        height: 80px;
+    }
+    .webLogo {
+        width: 40%; 
+        height: 80px;
+        background-size: 115%;
+        margin-top: 0;
+        background-position: 0 3px;
+    }
+    .nav {
+        float: right;
+        width: 60%;
+        height: 80px;
+        display: inline-block;
+        line-height: 80px;
+        text-align: center;
+    }
+    #homeId,
+    #aboutId,
+    .dropbtn {
+        height: 46px;
+        line-height: 46px;
+        display: inline-block;
+        font-size: 16px;
+        color: #4c4c4c;
+        font-weight: bold;
+        text-decoration-line: none;
+        padding: 0 10px 0 0;
+        border-bottom: 0px solid #000;
+    }
+    #aboutId {
+        padding: 0 0 0 0;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        line-height: 46px;
+    }
+    .down {
+        position: absolute;
+        top: 18px;
+        right: 0px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 120px;
+        top: 46px;
+        z-index: 9999;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 0px 0px;
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+    }
+    .show {display:block;}
+    .dropbtn:hover {
+        background-color: #ddd;
+        color: #FF8C00;
+        text-decoration-line: none;
+    }
+    #mobile {
+        width: 100%;
+        height: 250px;
+        background-image: url(../image/mobile.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    .black_overlay {
+        display: none;
+        position: fixed;
+        /* overflow: hidden; */
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=88);
+    }
+    .white_content {
+        display: none;
+        position: fixed;
+        /* overflow: hidden; */
+        top: 60%;
+        left: 90%;
+        width: 300px;
+        height: 250px;
+        /* margin-left: -300px;
+        margin-top: -200px; */
+        background-color: white;
+        z-index: 1002;
+    }
+    .white_content h2 {
+        position:absolute;
+        top: 20px;
+        left: 20px;
+    }
+    .white_content h4 {
+        position:absolute;
+        top: 90px;
+        left: 30px;
+    }
+    .white_content img {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 28px;
+    }
+    .white_content .close:hover,
+    #mapIcon:hover {
+        opacity: 0.5;
+    }
+    .white_content .postcode {
+        position: absolute;
+        top: 110px;
+        left: 31px;
+    }
+    .white_content .postcode input {
+        width: 230px;
+        height: 20px;
+    }
+    #mapIcon p {
+        position: absolute;
+        display: inline-block;
+        top: 92px;
+        font-size: 12px;
+        right: 18%;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    #mapIcon img {
+        position: absolute;
+        top: 91px;
+        right: 13%;
+        height: 18px;
+    }
+    .white_content .continue {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        border-radius: 9px;
+        left: 33%;
+        bottom: 20px;
+        background:#FF8C00;
+        font-size:14px;
+        color:white;
+        border: 0;
+        cursor: pointer;
+    }
+    .white_content .continue:hover{
+        opacity: 0.5;
+    }
+    #emptyError,
+    #numberError {
+        position: absolute;
+        left: 30px;
+        top: 140px;
+        font-size: 12px;
+        color: red;
+        display: none;
+    }
+    .footer {
+        position: relative;
+        height: 100px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgb(17, 17, 17);
+        background-image: url(../image/teamLogo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 70%;
+    }
+    .footer .p1 {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 155px;
+        font-size: 7px;
+    }
+    .footer img {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 143px;
+        width: 7px;
+        height: 7px;
+        border-radius: 7px;
+    }
+    .footer .p2 {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 20px;
+        font-size: 7px;
+    }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 992px) {
+    header {
+        width: 100%;
+        height: 100px;
+    }
+    .webLogo {
+        width: 30%; 
+        height: 100px;
+        background-position: 0 -8px;
+    }
+    .nav {
+        float: right;
+        width: 50%;
+        height: 100px;
+        display: inline-block;
+        line-height: 100px;
+        text-align: center;
+    }
+    #homeId,
+    #aboutId,
+    .dropbtn {
+        height: 46px;
+        line-height: 46px;
+        display: inline-block;
+        font-size: 18px;
+        color: #4c4c4c;
+        font-weight: bold;
+        text-decoration-line: none;
+        padding: 0 14px;
+        border-bottom: 0px solid #000;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        line-height: 46px;
+    }
+    .down {
+        position: absolute;
+        top: 16px;
+        right: 1px;
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 120px;
+        top: 46px;
+        z-index: 9999;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 0px 0px;
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+    }
+    .show {display:block;}
+    .dropbtn:hover {
+        background-color: #ddd;
+        color: #FF8C00;
+        text-decoration-line: none;
+    }
+    #mobile {
+        width: 90%;
+        height: 400px;
+        margin: 30px auto;
+        background-image: url(../image/mobile.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    /* Shrouded layer */
+    .black_overlay {
+        display: none;
+        position: fixed;
+        /* overflow: hidden; */
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=88);
+    }
+    /* pop-up layer */
+    .white_content {
+        display: none;
+        position: fixed;
+        /* overflow: hidden; */
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 400px;
+        /* margin-left: -300px;
+        margin-top: -200px; */
+        background-color: white;
+        z-index: 1002;
+    }
+    .white_content h2 {
+        position:absolute;
+        top: 50px;
+        left: 60px;
+    }
+    .white_content h4 {
+        position:absolute;
+        top: 160px;
+        left: 140px;
+    }
+    .white_content img {
+        position: absolute;
+        top: 55px;
+        right: 60px;
+        height: 28px;
+    }
+    .white_content .close:hover,
+    #mapIcon:hover {
+        opacity: 0.5;
+    }
+    .white_content .postcode {
+        position: absolute;
+        top: 190px;
+        left: 140px;
+    }
+    .white_content .postcode input {
+        width: 300px;
+        height: 30px;
+    }
+    #mapIcon p {
+        position: absolute;
+        display: inline-block;
+        top: 162px;
+        font-size: 12px;
+        right: 29%;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    #mapIcon img {
+        position: absolute;
+        top: 160px;
+        right: 26%;
+        height: 18px;
+    }
+    .white_content .continue {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        border-radius: 9px;
+        left: 42%;
+        bottom: 50px;
+        background:#FF8C00;
+        font-size:14px;
+        color:white;
+        border: 0;
+        cursor: pointer;
+    }
+    .white_content .continue:hover{
+        opacity: 0.5;
+    }
+    #emptyError,
+    #numberError {
+        position: absolute;
+        left: 140px;
+        top: 230px;
+        font-size: 12px;
+        color: red;
+        display: none;
+    }
+    .footer {
+        position: relative;
+        height: 150px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgb(17, 17, 17);
+        background-image: url(../image/teamLogo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 70%;
+    }
+    .footer .p1 {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 235px;
+        font-size: 10px;
+    }
+    .footer img {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 215px;
+        width: 14px;
+        height: 14px;
+        border-radius: 7px;
+    }
+    .footer .p2 {
+        position: absolute;
+        color: white;
+        bottom: 6%;
+        right: 40px;
+        font-size: 10px;
+    }
+}

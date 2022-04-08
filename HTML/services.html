@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose-hope.reconnection</title>
+    <link rel="stylesheet" href="CSS/services.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="JS/services.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- web logo -->
+        <a href="index.html" class="webLogo"></a>
+        <!-- navigation bar -->
+        <div class="nav">
+            <a href="index.html" id="homeId">Home</a>
+            <div class="dropdown">
+                <a href="javascript:;" onclick="myFunction()" class="dropbtn">Services<i class="down"></i></a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="javascript:;"
+                        onclick="reconnectionServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Reconnect
+                        Program</a>
+                    <a href="javascript:;"
+                        onclick="housingServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Social
+                        Housing</a>
+                    <a href="javascript:;"
+                        onclick="healthServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Health
+                        Care</a>
+                    <a href="javascript:;"
+                        onclick="jobServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Job
+                        Opportunities</a>
+                    <a href="javascript:;"
+                        onclick="legalServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Legal
+                        Advice</a>
+                    <a href="javascript:;"
+                        onclick="laundryServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">Laundry</a>
+                </div>
+            </div>
+            <a href="aboutUs.html" id="aboutId">About Us</a>
+        </div>
+    </header>
+    <!-- Description and function buttons of the current service -->
+    <div class="top">
+        <img id="backButton" onclick="back()" src="image/back.png" alt="">
+        <h2 id="h2">We are looking for
+            related
+            services...</h2>
+        <div id="changeLocationDiv">
+            <p id="changeLocation"
+                onclick="disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+            </p>
+        </div>
+        <div id="allServicesDiv">
+            <p id="allServices" onclick="allServices()"></p>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+        <div id="light" class="white_content">
+            <h2>Find a service!</h2>
+            <h4>Location:</h4>
+            <a href="javascript:void(0)"
+                onclick="enableScroll();document.body.style.overflow='auto';document.getElementById('emptyError').style.display='none';document.getElementById('numberError').style.display='none';document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><img
+                    src="image/close.png" alt="">
+            </a>
+            <div class="postcode">
+                <input type="text" id="input_id" value="" placeholder="Start typing a suburb or city" onkeydown="if (event.keyCode == 13)
+                    document.getElementById('Continue').click()">
+            </div>
+            <div>
+                <input type="button" class="continue" value="Show Me" id="Continue" onclick="valueSender()" />
+            </div>
+            <div id="mapIcon">
+                <p onclick="valueSender2()">Use My Current Location</p><img src="image/maplogo.png" alt="">
+            </div>
+            <p id="emptyError">Input can not be empty!</p>
+            <p id="numberError">Input must be a number!</p>
+        </div>
+        <div id="light2" class="white_content">
+            <h2>Find a service!</h2>
+            <h4>Location:</h4>
+            <a href="javascript:void(0)"
+                onclick="enableScroll();document.body.style.overflow='auto';document.getElementById('emptyError2').style.display='none';document.getElementById('numberError2').style.display='none';document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'"><img
+                    src="image/close.png" alt="">
+            </a>
+            <div class="postcode">
+                <input type="text" id="input_id2" value="" placeholder="Start typing a suburb or city" onkeydown="if (event.keyCode == 13)
+                    document.getElementById('Continue2').click()">
+            </div>
+            <div>
+                <input type="button" class="continue" value="Show Me" id="Continue2" onclick="valueSender3()" />
+            </div>
+            <div id="mapIcon2">
+                <p onclick="valueSender4()">Use My Current Location</p><img src="image/maplogo.png" alt="">
+            </div>
+            <p id="emptyError2">Input can not be empty!</p>
+            <p id="numberError2">Input must be a number!</p>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+    </div>
+    <!-- </div> -->
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+
+    <div class="call">
+        <h3>For help and safety call:<br>Victorian Statewide Homelessness Line</h3>
+        <a href="tel:+1800 825 955" class="phone" id="phoneNumber"><img src="image/phone.png" alt="">
+            <p>1800 825 955</p>
+        </a>
+    </div>
+
+    <div id="blankDiv"></div>
+
+    <!-- the services' list -->
+    <div class="contain"></div>
+    <button class="loadMore">Show More</button>
+
+    <!-- footer -->
+    <div class="footer">
+        <p class="p1">Copyright</p>
+        <img src="image/copyright.png" alt="">
+        <p class="p2">2021 Project007. All Rights Reserved.</p>
+    </div>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxTkcaljc1eGqBEeua_dTtCDLB9dhNI-4&callback=initMap"></script>
+</body>
+
+</html>

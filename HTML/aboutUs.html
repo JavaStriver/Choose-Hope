@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose-hope.reconnection</title>
+    <link rel="stylesheet" href="CSS/aboutUs.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="JS/aboutUs.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxTkcaljc1eGqBEeua_dTtCDLB9dhNI-4&libraries=places&callback"></script>
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="margin: 0;padding: 0;font-family: Montserrat;">
+    <header id="header">
+        <!-- web logo -->
+        <a href="index.html" id="webLogo"></a>
+        <!-- navigation bar -->
+        <div id="nav">
+            <a href="index.html" id="homeId">Home</a>
+            <div id="dropdown">
+                <a href="javascript:;" onclick="myFunction()" class="dropbtn">Services<i class="down"></i></a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="javascript:;"
+                        onclick="reconnectionServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Reconnect
+                        Program</a>
+                    <a href="javascript:;"
+                        onclick="housingServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Social
+                        Housing</a>
+                    <a href="javascript:;"
+                        onclick="healthServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Health
+                        Care</a>
+                    <a href="javascript:;"
+                        onclick="jobServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Job
+                        Opportunities</a>
+                    <a href="javascript:;"
+                        onclick="legalServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Legal
+                        Advice</a>
+                    <a href="javascript:;"
+                        onclick="laundryServiceClick();disableScroll();document.body.style.overflow='hidden';document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Laundry</a>
+                </div>
+            </div>
+            <a href="#" id="aboutId">About Us</a>
+        </div>
+    </header>
+
+    <div class="aboutUsPage"><img src="image/aboutUsPage.png" alt=""></div>
+
+    <!-- video -->
+    <div class="video">
+        <h1 id="aboutUs">Better Life, Better Future! </h1>
+        <h3 class="des">Choose-hope is committed to ensure the wellbeing of children and young people in Victoria, our
+            services create intentional avenues for young people to explore opportunities, and build support
+            networks. </h3>
+        <video src="image/AboutUs.mp4" controls="controls" controlsList="nodownload"></video>
+    </div>
+
+    <div id="light" class="white_content">
+        <h2>Find a service!</h2>
+        <h4>Location:</h4>
+        <a href="javascript:void(0)"
+            onclick="enableScroll();document.body.style.overflow='auto';document.getElementById('emptyError').style.display='none';document.getElementById('numberError').style.display='none';document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><img
+                src="image/close.png" alt="">
+        </a>
+        <div class="postcode">
+            <input type="text" id="input_id" value="" placeholder="Start typing a suburb or city" onkeydown="if (event.keyCode == 13)
+                    document.getElementById('Continue').click()" />
+        </div>
+        <div>
+            <input type="button" class="continue" id="Continue" value="Show Me" onclick="valueSender()" />
+        </div>
+        <div id="mapIcon">
+            <p onclick="valueSender2()">Use My Current Location</p><img src="image/maplogo.png" alt="">
+        </div>
+        <p id="emptyError">Input can not be empty!</p>
+        <p id="numberError">Input must be a number!</p>
+    </div>
+
+    <div id="fade" class="black_overlay"></div>
+
+    <div class="animation">
+        <h1 id="animationH1">Get To Know Us Better! </h1>
+        <section class="cd-timeline js-cd-timeline" style="background-color: white;">
+            <div class="container max-width-lg cd-timeline__container">
+                <div class="cd-timeline__block">
+                    <div class="cd-timeline__img cd-timeline__img--picture">
+                        <img id="mission" src="image/mission.png" alt="Picture">
+                    </div> <!-- cd-timeline__img -->
+
+                    <div class="cd-timeline__content text-component">
+                        <h2>Our Mission</h2>
+                        <p class="color-contrast-medium">Choose-hope aims to help disconnected young people discover the
+                            greatness within,
+                            by supporting and providing opportunities to encourage and facilitate positive life and to
+                            keep them off the streets.</p>
+
+                        <div class="flex justify-between items-center">
+                            <!-- <span class="cd-timeline__date">Jan 14</span>
+                        <a href="#0" class="btn btn--subtle">Read more</a> -->
+                        </div>
+                    </div> <!-- cd-timeline__content -->
+                </div> <!-- cd-timeline__block -->
+
+                <div class="cd-timeline__block">
+                    <div class="cd-timeline__img cd-timeline__img--movie">
+                        <img id="vission" src="image/vission.png" alt="Movie">
+                    </div> <!-- cd-timeline__img -->
+
+                    <div class="cd-timeline__content text-component">
+                        <h2>Our Vission</h2>
+                        <p class="color-contrast-medium">We strongly believe that the youth of the country should have
+                            every opportunity to live the life they aspire to,
+                            and build a future they choose. Choose-hope envisions an Australia where all of us have a
+                            safe home and can thrive.</p>
+
+                        <div class="flex justify-between items-center">
+                            <!-- <span class="cd-timeline__date">Jan 18</span>
+                        <a href="#0" class="btn btn--subtle">Read more</a> -->
+                        </div>
+                    </div> <!-- cd-timeline__content -->
+                </div> <!-- cd-timeline__block -->
+
+                <div class="cd-timeline__block">
+                    <div class="cd-timeline__img cd-timeline__img--picture">
+                        <img id="services" src="image/services.png" alt="Picture">
+                    </div> <!-- cd-timeline__img -->
+
+                    <div class="cd-timeline__content text-component">
+                        <h2>Our Services</h2>
+                        <p class="color-contrast-medium">At choose-hope, we offer access to a wide range of free
+                            services that are specifically designed for the youth of Australia.
+                            Which includes: Reconnect programs, Social Housing, Health Care, Job Opportunities, Legal
+                            Advice, and Laundry facilities.
+                            These are aimed to facilitate and establish a path for Better Life, Better Future!</p>
+
+                        <div class="flex justify-between items-center">
+                            <!-- <span class="cd-timeline__date">Jan 24</span>
+                        <a href="#0" class="btn btn--subtle">Read more</a> -->
+                        </div>
+                    </div> <!-- cd-timeline__content -->
+                </div> <!-- cd-timeline__block -->
+
+                <div class="cd-timeline__block">
+                    <div class="cd-timeline__img cd-timeline__img--location">
+                        <img id="team" src="image/team.png" alt="Location">
+                    </div> <!-- cd-timeline__img -->
+
+                    <div class="cd-timeline__content text-component">
+                        <h2>Our People</h2>
+                        <p class="color-contrast-medium">The team behind the project initiative is at the center of
+                            everything we do.
+                            Each plays their special part, applying their unique skills to the pursuit of one common
+                            goal:
+                            to prevent youth homelessness and ensure people and communities in need can thrive.</p>
+
+                        <div class="flex justify-between items-center">
+                            <!-- <span class="cd-timeline__date">Feb 14</span>
+                        <a href="#0" class="btn btn--subtle">Read more</a> -->
+                        </div>
+                    </div> <!-- cd-timeline__content -->
+                </div> <!-- cd-timeline__block -->
+            </div>
+        </section> <!-- cd-timeline -->
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <p class="p1">Copyright</p>
+        <img src="image/copyright.png" alt="">
+        <p class="p2">2021 Project007. All Rights Reserved.</p>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
